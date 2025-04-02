@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+}
+
+.box {
+    border: 1px solid black;
+    width: 500px;
+    border-radius: 20px;
+    margin: 0 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.item-img {
+    width: 400px;
+}
