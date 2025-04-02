@@ -6,8 +6,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Box from './components/Box';
+import { useState } from 'react';
 
 function App() {
+  const [userSelect, setUserSelect] = useState();
+
   const choice = {
     rock: {
       name: 'rock',
