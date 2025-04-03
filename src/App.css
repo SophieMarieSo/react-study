@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+h1,
+h2 {
+  cursor: default;
+}
+
 button {
   margin: 0 20px;
   border: 0;
@@ -19,6 +24,20 @@ button {
   margin: auto;
 }
 
+.cnt {
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 20px;
+  top: 25px;
+  left: 0;
+  color: darkviolet;
+}
+
+.initial {
+  color: black;
+}
+
 .title {
   display: flex;
   justify-content: center;
@@ -29,8 +48,8 @@ button {
 
 .reset-btn {
   position: absolute;
-  top: 35px;
-  right: 35px;
+  top: 25px;
+  right: 0;
   cursor: pointer;
 }
 
@@ -42,7 +61,7 @@ button {
 }
 
 .box {
-  border: 1px solid black;
+  border: 5px solid black;
   width: 400px;
   border-radius: 20px;
   margin: 0 20px;
@@ -67,4 +86,48 @@ button {
 .reset-btn:hover {
   transform: rotate(15deg) scale(1.5);
   color: darkviolet;
+}
+
+@keyframes scaling {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+.win {
+  border: 5px solid green;
+
+  .box-title {
+    color: green;
+  }
+
+  .result {
+    color: green;
+    animation: scaling 1s ease-in-out alternate infinite;
+  }
+}
+
+.lose {
+  border: 5px solid red;
+  .box-title {
+    color: red;
+  }
+
+  .result {
+    color: red;
+  }
+}
+
+.tie {
+  border: 5px solid gray;
+  .box-title {
+    color: gray;
+  }
+
+  .result {
+    color: gray;
+  }
 }

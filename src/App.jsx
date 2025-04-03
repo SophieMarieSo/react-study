@@ -4,6 +4,7 @@ import {
   faHandBackFist,
   faHandScissors,
   faRotate,
+  faTrophy,
 } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Box from './components/Box';
@@ -33,6 +34,7 @@ function App() {
   const [userSelect, setUserSelect] = useState(initialImg);
   const [computerSelect, setComputerSelect] = useState(initialImg);
   const [result, setResult] = useState('');
+  const [victoryCnt, setVictoryCnt] = useState(0);
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
@@ -40,7 +42,10 @@ function App() {
     const computerChoice = randomChoice();
     setComputerSelect(choice[computerChoice]);
 
-    setResult(judgement(choice[userChoice], choice[computerChoice]));
+    const result = judgement(choice[userChoice], choice[computerChoice]);
+    setResult(result);
+
+    if (result === 'WIN') setVictoryCnt(victoryCnt + 1);
   };
 
   const randomChoice = () => {
@@ -52,6 +57,8 @@ function App() {
   const resetGame = () => {
     setComputerSelect(initialImg);
     setUserSelect(initialImg);
+    setResult('');
+    setVictoryCnt(0);
   };
 
   const judgement = (user, computer) => {
@@ -65,12 +72,17 @@ function App() {
 
   return (
     <div className='game-container'>
+      {victoryCnt > 0 ? (
+        <span className='cnt'>
+          <FontAwesomeIcon icon={faTrophy} /> {victoryCnt}
+        </span>
+      ) : (
+        <span className='cnt initial'>{victoryCnt}</span>
+      )}
       <h1 className='title'>Let's Play</h1>
-      <FontAwesomeIcon
-        className='reset-btn'
-        icon={faRotate}
-        onClick={resetGame}
-      />
+      <button className='reset-btn' onClick={resetGame}>
+        <FontAwesomeIcon icon={faRotate} />
+      </button>
       <div className='box-container'>
         <Box title='YOU' select={userSelect} result={result} />
         <Box title='COMPUTER' select={computerSelect} result={result} />
