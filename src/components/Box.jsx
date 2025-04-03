@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Box({ title, select }) {
+export default function Box({ title, select, result }) {
   const onErrorImg = (e) => {
     e.target.src =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZJMiUr-wVmSLxrcyBdNfU5DCBOkq7mmCWog&s';
@@ -15,7 +15,17 @@ export default function Box({ title, select }) {
         alt={select?.name}
         onError={onErrorImg}
       />
-      <h2>WIN</h2>
+      <h2>
+        {title === 'YOU'
+          ? result
+          : result === 'TIE'
+          ? result
+          : result === 'WIN'
+          ? 'LOSE'
+          : result === 'LOSE'
+          ? 'WIN'
+          : ''}
+      </h2>
     </div>
   );
 }
