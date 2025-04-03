@@ -15,12 +15,14 @@
 
 ---
 
-### 🎨 배포
-
-`Netlify`
-
----
 
 ### 🤙🏻 APIs
 
 [open-weather-map](https://openweathermap.org/api)
+
+---
+
+### 🎨 배포
+
+`Netlify`
+
