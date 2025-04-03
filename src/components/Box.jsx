@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ClipLoader } from 'react-spinners';
 
-export default function Box({ title }) {
+export default function Box({ title, select }) {
   const onErrorImg = (e) => {
     e.target.src =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZJMiUr-wVmSLxrcyBdNfU5DCBOkq7mmCWog&s';
@@ -11,8 +12,8 @@ export default function Box({ title }) {
       <h1>{title}</h1>
       <img
         className='item-img'
-        src='https://blackbearwow.gith/image/rockPaperScissors/rock.png'
-        alt=''
+        src={select?.img}
+        alt={select?.name}
         onError={onErrorImg}
       />
       <h2>WIN</h2>

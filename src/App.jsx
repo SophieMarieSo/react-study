@@ -9,8 +9,6 @@ import Box from './components/Box';
 import { useState } from 'react';
 
 function App() {
-  const [userSelect, setUserSelect] = useState();
-
   const choice = {
     rock: {
       name: 'rock',
@@ -26,13 +24,22 @@ function App() {
     },
   };
 
-  const play = (userChoice) => {};
+  const initialImg = {
+    name: 'initial game image',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRASAX0_l80MRfGqhk3vo52CVyPb5_opvEwlA&s',
+  };
+
+  const [userSelect, setUserSelect] = useState(initialImg);
+
+  const play = (userChoice) => {
+    setUserSelect(choice[userChoice]);
+  };
 
   return (
     <>
       <h1 className='title'>Let's Play</h1>
       <div className='box-container'>
-        <Box title='YOU' />
+        <Box title='YOU' select={userSelect} />
         <Box title='COMPUTER' />
       </div>
 
