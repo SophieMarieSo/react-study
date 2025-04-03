@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { ClipLoader } from 'react-spinners';
+import React from 'react';
 
 export default function Box({ title, select }) {
   const onErrorImg = (e) => {
