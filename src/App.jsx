@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios';
+import WeatherBox from './components/WeatherBox';
+import WeatherButton from './components/WeatherButton';
 
 function App() {
   useEffect(() => {
@@ -17,11 +20,20 @@ function App() {
   };
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=953f0c6e931e61136763636928559bf1`;
+    const apiKey = process.env.REACT_APP_WEATHER_API;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     const resp = await axios.get(url);
+    console.log('====================================');
+    console.log(resp);
+    console.log('====================================');
   };
 
-  return <div></div>;
+  return (
+    <div className='container'>
+      <WeatherBox />
+      <WeatherButton />
+    </div>
+  );
 }
 
 export default App;
