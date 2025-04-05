@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios';
@@ -6,6 +6,8 @@ import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
 
 function App() {
+  const cities = ['NewYork', 'Tokyo', 'Bali'];
+  const [weather, setWeather] = useState(null);
   useEffect(() => {
     getCurrentLocation();
   }, []);
@@ -21,17 +23,15 @@ function App() {
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
     const apiKey = process.env.REACT_APP_WEATHER_API;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
     const resp = await axios.get(url);
-    console.log('====================================');
-    console.log(resp);
-    console.log('====================================');
+    setWeather(resp.data);
   };
 
   return (
     <div className='container'>
-      <WeatherBox />
-      <WeatherButton />
+      <WeatherBox weather={weather} />
+      <WeatherButton cities={cities} />
     </div>
   );
 }

@@ -18,7 +18,18 @@ body {
 .weather-box {
   border: 3px solid grey;
   background-color: rgb(211, 211, 211, 0.9);
-  padding: 5rem 10rem;
+  padding: 3rem 7rem;
   margin-bottom: 2rem;
   border-radius: 30px;
+}
+
+.temperature {
+  margin: 1rem 0;
+}
+
+.feels-like {
+  font-size: 1rem;
+  margin-left: 0.2rem;
+  font-weight: bold;
+  color: darkslategray;
 }
