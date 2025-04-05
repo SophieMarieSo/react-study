@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 
-export default function WeatherBox({ weather }) {
+export default function WeatherBox({ weather, city }) {
   const sunrise = dayjs(new Date(weather?.sys.sunrise * 1000)).format(
     'HH시mm분'
   );
@@ -9,17 +9,21 @@ export default function WeatherBox({ weather }) {
 
   return (
     <div className='weather-box'>
-      <h5>
-        🌞{sunrise} 🌜{sunset}
-      </h5>
-      <h3>{weather?.name}</h3>
+      {!city && (
+        <h6>
+          🌞{sunrise} 🌜{sunset}
+        </h6>
+      )}
+      <h2>{weather?.name}</h2>
       <h2 className='temperature'>
-        {weather?.main.temp}°C{' '}
+        {Math.floor(weather?.main.temp)}°C{' '}
         <span className='feels-like'>
           feels like {Math.floor(weather?.main.feels_like)}°C
         </span>
       </h2>
-      <h2>{weather?.weather[0].description}</h2>
+      <h6 className='description'>
+        {weather?.weather[0].description.toUpperCase()}
+      </h6>
     </div>
   );
 }
