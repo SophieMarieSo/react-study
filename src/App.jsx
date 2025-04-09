@@ -3,10 +3,12 @@ import './App.css';
 import ProductAllPage from './pages/ProductAllPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import LoginPage from './pages/LoginPage';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path='/' element={<ProductAllPage />} />
         <Route path='/login' element={<LoginPage />} />
