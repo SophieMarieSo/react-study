@@ -8,7 +8,9 @@ export default function ProductAllPage() {
   }, []);
 
   const getProducts = async () => {
-    const resp = await axios.get('http://localhost:5000/products');
+    const resp = await axios.get(
+      'https://my-json-server.typicode.com/SophieMarieSo/react-study/products'
+    );
     setProductList(resp.data);
   };
 
