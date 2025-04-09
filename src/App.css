@@ -11,7 +11,7 @@ ul {
 
 /* Navbar */
 .navbar {
-  margin: 2rem;
+  margin: 1.5rem;
 }
 
 .login-section {
@@ -28,17 +28,13 @@ ul {
   gap: 0.5rem;
   cursor: pointer;
   font-weight: normal;
-  transition: font-weight 0.2s;
-}
-
-.login-btn:hover {
-  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
 .logo-section {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 .logo-img {
@@ -53,7 +49,6 @@ ul {
 
 .menu-list {
   display: flex;
-  gap: 0.5rem;
   padding: 0.5rem 0;
 }
 
@@ -61,11 +56,13 @@ ul {
   font-weight: normal;
   min-width: 100px;
   text-align: center;
-  transition: font-weight 0.2s;
+  transition: all 0.2s ease;
 }
 
-.menu:hover {
+.menu:hover,
+.login-btn:hover {
   font-weight: bold;
+  transform: scale(1.1);
 }
 
 .search-box {
