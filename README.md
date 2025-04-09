@@ -17,10 +17,12 @@
 
 ### 💻 사용 스택
 
-`React` `React-Router`
+`React` `React-Router` `Json-Server`
 
 ---
 
 ### 🎨 배포
 
 `Netlify`
+
+https://sage-starship-184ef1.netlify.app/
