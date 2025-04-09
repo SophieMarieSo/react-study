@@ -15,7 +15,7 @@ export default function Navbar() {
     '지속가능성',
   ];
   return (
-    <nav className='navbar'>
+    <nav className='navbar-section'>
       <section className='login-section'>
         <div className='login-btn'>
           <FontAwesomeIcon icon={faUser} /> 로그인
