@@ -11,7 +11,7 @@
 
 ### 💻 사용 스택
 
-`React`
+`React` `Axios` `Bootstrap`
 
 ---
 
