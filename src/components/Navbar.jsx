@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
+import { Container, Offcanvas } from 'react-bootstrap';
 
-export default function Navbar({ authenticate }) {
+export default function Navbar({ authenticate, setAuthenticate }) {
   const menuList = [
     '여성',
     'Divided',
@@ -16,24 +17,53 @@ export default function Navbar({ authenticate }) {
     '지속가능성',
   ];
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   const [keyword, setKeyword] = useState('');
 
   const onSearch = (e) => {
     if (e.key === 'Enter') {
       navigate(`/?q=${keyword}`);
       setKeyword('');
+      setShow(false);
     }
   };
 
   return (
-    <nav className='navbar-section'>
-      <section
-        className='login-section'
-        onClick={() => {
-          navigate('/login');
-        }}
-      >
-        <div className='login-btn'>
+    <Container className='navbar-section'>
+      <section className='login-section'>
+        <div className='nav-btn' onClick={() => setShow((prev) => !prev)}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
+        <Offcanvas show={show} onHide={() => setShow((prev) => !prev)}>
+          <Offcanvas.Header closeButton />
+          <Offcanvas.Body>
+            <div className='search-box'>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <input
+                className='search-input'
+                type='text'
+                placeholder='제품 검색'
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                onKeyDown={onSearch}
+              />
+            </div>
+            <ul className='menu-list'>
+              {menuList.map((menu, idx) => (
+                <li key={idx} className='menu'>
+                  {menu}
+                </li>
+              ))}
+            </ul>
+          </Offcanvas.Body>
+        </Offcanvas>
+        <div
+          className='login-btn'
+          onClick={() => {
+            navigate('/login');
+            setAuthenticate((prev) => !prev);
+          }}
+        >
           <FontAwesomeIcon icon={faUser} />{' '}
           <span>{authenticate ? '로그아웃' : '로그인'}</span>
         </div>
@@ -67,6 +97,6 @@ export default function Navbar({ authenticate }) {
           />
         </div>
       </section>
-    </nav>
+    </Container>
   );
 }

@@ -35,7 +35,7 @@ export default function ProductDetailPage() {
             rounded
           />
         </Col>
-        <Col lg={6} sm={12} className='m-3'>
+        <Col lg={7} sm={12} className='mt-3'>
           <h4 className='title-section'>
             <div className='title-badge'>
               <span>{product?.title} </span>
