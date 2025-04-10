@@ -8,7 +8,7 @@ export default function ProductCard({ product }) {
   return (
     <div
       className='product-card'
-      onClick={() => navigate(`/product/:${product?.id}`)}
+      onClick={() => navigate(`/products/${product?.id}`)}
     >
       <Image
         className='product-img'

@@ -21,7 +21,7 @@ function App() {
           element={<LoginPage setAuthenticate={setAuthenticate} />}
         />
         <Route
-          path='/product/:id'
+          path='/products/:id'
           element={<PrivateRoute authenticate={authenticate} />}
         />
       </Routes>

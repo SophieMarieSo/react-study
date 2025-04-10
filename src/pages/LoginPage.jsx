@@ -20,12 +20,17 @@ export default function LoginPage({ setAuthenticate }) {
             type='text'
             placeholder='아이디를 입력하시오'
             autocomplete='off'
+            required
           />
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='pw'>
           <Form.Label>비밀번호</Form.Label>
-          <Form.Control type='password' placeholder='비밀번호를 입력하시오' />
+          <Form.Control
+            type='password'
+            placeholder='비밀번호를 입력하시오'
+            required
+          />
         </Form.Group>
 
         <Button variant='danger' type='submit'>
