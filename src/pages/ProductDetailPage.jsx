@@ -1,4 +1,7 @@
-import { faHeart as fullHeart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTriangleExclamation,
+  faHeart as fullHeart,
+} from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,7 +51,11 @@ export default function ProductDetailPage() {
     <Container className='detail'>
       <Row>
         {error && (
-          <Alert className='error' variant='danger'>
+          <Alert variant='danger'>
+            <FontAwesomeIcon
+              className='btn-icon'
+              icon={faTriangleExclamation}
+            />
             {errorMsg}
           </Alert>
         )}

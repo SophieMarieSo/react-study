@@ -179,12 +179,6 @@ ul {
   max-width: 1000px;
 }
 
-/* no data */
-.no-data.container {
-  margin: 3rem;
-  text-align: center;
-}
-
 /* responsive */
 @media (max-width: 576px) {
   .navbar-section {
@@ -227,4 +221,18 @@ ul {
 
 .spinner-border {
   margin-top: 5rem !important;
+}
+
+/* no data */
+.btn-icon {
+  margin-right: 1rem;
+}
+
+.fade.alert.alert-primary.show {
+  text-align: center;
+}
+
+/* error */
+.fade.alert.alert-danger.show {
+  text-align: center;
 }
