@@ -1,9 +1,15 @@
 import React from 'react';
 import { Badge, Image } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 export default function ProductCard({ product }) {
+  const navigate = useNavigate();
+
   return (
-    <div className='product-card'>
+    <div
+      className='product-card'
+      onClick={() => navigate(`/product/:${product?.id}`)}
+    >
       <Image
         className='product-img'
         src={product?.img}

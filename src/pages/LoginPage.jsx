@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 export default function LoginPage({ setAuthenticate }) {
+  const navigate = useNavigate();
+
   const onSubmit = (e) => {
     e.preventDefault();
+    setAuthenticate((prev) => !prev);
+    navigate('/');
   };
 
   return (
