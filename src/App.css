@@ -219,3 +219,12 @@ ul {
     display: block;
   }
 }
+
+/* loading spinner */
+.loading {
+  margin: auto;
+}
+
+.spinner-border {
+  margin-top: 5rem !important;
+}
