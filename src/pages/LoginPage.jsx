@@ -7,8 +7,8 @@ export default function LoginPage({ setAuthenticate }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setAuthenticate((prev) => !prev);
     navigate('/');
+    setAuthenticate((prev) => !prev);
   };
 
   return (

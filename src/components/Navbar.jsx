@@ -60,8 +60,11 @@ export default function Navbar({ authenticate, setAuthenticate }) {
         <div
           className='login-btn'
           onClick={() => {
+            if (authenticate) {
+              // 로그인된 상태
+              setAuthenticate((prev) => !prev);
+            }
             navigate('/login');
-            setAuthenticate((prev) => !prev);
           }}
         >
           <FontAwesomeIcon icon={faUser} />{' '}
