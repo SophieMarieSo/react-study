@@ -114,6 +114,11 @@ ul {
   font-weight: bold;
 }
 
+/* product all page */
+.all.container {
+  margin-bottom: 2rem;
+}
+
 /* detail page */
 .detail.container {
   max-width: 1000px;
@@ -168,4 +173,10 @@ ul {
 /* login page */
 .login.container {
   max-width: 1000px;
+}
+
+/* no data */
+.no-data.container {
+  margin: 3rem;
+  text-align: center;
 }

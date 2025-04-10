@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,14 @@ export default function Navbar({ authenticate }) {
     '지속가능성',
   ];
   const navigate = useNavigate();
+  const [keyword, setKeyword] = useState('');
+
+  const onSearch = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/?q=${keyword}`);
+      setKeyword('');
+    }
+  };
 
   return (
     <nav className='navbar-section'>
@@ -49,7 +57,14 @@ export default function Navbar({ authenticate }) {
         </ul>
         <div className='search-box'>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <input className='search-input' type='text' placeholder='제품 검색' />
+          <input
+            className='search-input'
+            type='text'
+            placeholder='제품 검색'
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            onKeyDown={onSearch}
+          />
         </div>
       </section>
     </nav>
