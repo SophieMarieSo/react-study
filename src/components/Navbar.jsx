@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router';
 
 export default function Navbar() {
   const menuList = [
@@ -14,9 +15,16 @@ export default function Navbar() {
     'Sale',
     '지속가능성',
   ];
+  const navigate = useNavigate();
+
   return (
     <nav className='navbar-section'>
-      <section className='login-section'>
+      <section
+        className='login-section'
+        onClick={() => {
+          navigate('/login');
+        }}
+      >
         <div className='login-btn'>
           <FontAwesomeIcon icon={faUser} /> 로그인
         </div>

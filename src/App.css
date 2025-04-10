@@ -7,6 +7,7 @@
 ul {
   list-style-type: none;
   cursor: pointer;
+  margin: 0;
 }
 
 /* Navbar */
@@ -73,7 +74,7 @@ ul {
   align-items: center;
   gap: 0.5rem;
   border-bottom: 2px solid darkgrey;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
 }
 
 .search-input {
@@ -110,4 +111,9 @@ ul {
 
 .price {
   font-weight: bold;
+}
+
+/* login page */
+.login.container {
+  max-width: 1000px;
 }
