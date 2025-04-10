@@ -17,7 +17,7 @@
 
 ### 💻 사용 스택
 
-`React` `React-Router` `Json-Server`
+`React` `React-Router` `Json-Server` `Axios` `Bootstrap`
 
 ---
 
