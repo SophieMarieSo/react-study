@@ -1,7 +1,15 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 export default function LoginPage() {
+  const navigate = useNavigate();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate('/');
+  };
+
   return (
     <Container className='login'>
       <Form onSubmit={onSubmit}>
