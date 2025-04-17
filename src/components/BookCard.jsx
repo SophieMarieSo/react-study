@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { faHeart as fullHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
