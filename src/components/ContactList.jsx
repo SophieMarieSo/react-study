@@ -11,10 +11,10 @@ import {
 } from '@mui/material';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
+import StarIcon from '@mui/icons-material/Star';
 export default function ContactList() {
-  const { phoneBook } = usePhoneBookStore();
+  const { phoneBook, deleteContact, toggleFavorite } = usePhoneBookStore();
   const [search, setSearch] = useState('');
-
   let filteredList = phoneBook.filter((item) => item.name.includes(search));
 
   return (
@@ -47,11 +47,14 @@ export default function ContactList() {
             </CardContent>
           </div>
           <div>
-            <IconButton>
+            <IconButton onClick={() => deleteContact(item.id)}>
               <DeleteOutlinedIcon />
             </IconButton>
-            <IconButton color='secondary'>
-              <StarOutlineOutlinedIcon />
+            <IconButton
+              color='secondary'
+              onClick={() => toggleFavorite(item.id)}
+            >
+              {item.favorite ? <StarIcon /> : <StarOutlineOutlinedIcon />}
             </IconButton>
           </div>
         </Card>
