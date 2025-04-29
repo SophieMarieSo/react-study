@@ -1,21 +1,31 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Alert, AlertTitle, Box, Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import usePhoneBookStore from '../stores/usePhoneBookStore';
 
 export default function ContactForm() {
   const initialContact = { name: '', phoneNumber: '' };
+  const [showAlert, setShowAlert] = useState(false);
   const [contact, setContact] = useState(initialContact);
   const { addContact } = usePhoneBookStore();
 
   const handleAdd = () => {
-    if (!contact.name.trim() || !contact.phoneNumber.trim()) return;
+    if (!contact.name.trim() || !contact.phoneNumber.trim()) {
+      setShowAlert(true);
+      return;
+    }
 
     addContact(contact);
     setContact(initialContact);
+    setShowAlert(false);
   };
 
   return (
     <Box display='flex' flexDirection='column' alignItems='center' gap={2}>
+      {showAlert && (
+        <Alert severity='warning' style={{ width: '94%' }}>
+          값을 입력해주세요
+        </Alert>
+      )}
       <TextField
         id='name'
         label='이름'
