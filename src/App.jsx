@@ -1,14 +1,23 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Switch, Typography } from '@mui/material';
 import './App.css';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
+import { useThemeStore } from './stores/useThemeStore';
 
 function App() {
+  const { mode, toggleMode } = useThemeStore();
   return (
     <Container>
-      <Typography sx={{ mt: 5, mb: 5 }} variant='h3' align='center'>
-        연락처 앱
-      </Typography>
+      <Box
+        display='flex'
+        alignItems='center'
+        justifyContent='center'
+        gap={2}
+        sx={{ mt: 3, mb: 3 }}
+      >
+        <Typography variant='h5'>연락처 앱</Typography>
+        <Switch checked={mode === 'dark'} onChange={toggleMode} />
+      </Box>
       <Grid container spacing={2}>
         <Grid size={6}>
           <ContactForm />

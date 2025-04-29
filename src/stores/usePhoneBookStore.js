@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const addContact = (set) => (contact) => {
   set((state) => ({
-    phoneBook: [...state.phoneBook, { ...contact, id: uuidv4() }],
+    phoneBook: [...state.phoneBook, { id: uuidv4(), ...contact }],
   }));
 };
 

@@ -14,7 +14,10 @@ export default function ContactForm() {
       return;
     }
 
+    // store
     addContact(contact);
+
+    // UI
     setContact(initialContact);
     setShowAlert(false);
   };
@@ -22,7 +25,10 @@ export default function ContactForm() {
   return (
     <Box display='flex' flexDirection='column' alignItems='center' gap={2}>
       {showAlert && (
-        <Alert severity='warning' style={{ width: '94%' }}>
+        <Alert
+          severity='warning'
+          style={{ width: '100%', boxSizing: 'border-box' }}
+        >
           값을 입력해주세요
         </Alert>
       )}
