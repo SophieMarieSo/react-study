@@ -5,15 +5,18 @@ import {
   Box,
   Card,
   CardContent,
+  IconButton,
   TextField,
   Typography,
 } from '@mui/material';
-
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 export default function ContactList() {
   const { phoneBook } = usePhoneBookStore();
   const [search, setSearch] = useState('');
 
-  const filteredList = phoneBook.filter((item) => item.name.includes(search));
+  let filteredList = phoneBook.filter((item) => item.name.includes(search));
+
   return (
     <Box display='flex' flexDirection='column' gap={2}>
       <TextField
@@ -37,11 +40,19 @@ export default function ContactList() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <Avatar>{item.name.charAt(0)}</Avatar>
             <CardContent sx={{ padding: '12px 0' }}>
-              <Typography variant='subtitle1'>{item.name}</Typography>
+              <Typography>{item.name}</Typography>
               <Typography variant='body2' color='text.secondary'>
                 {item.phoneNumber}
               </Typography>
             </CardContent>
+          </div>
+          <div>
+            <IconButton>
+              <DeleteOutlinedIcon />
+            </IconButton>
+            <IconButton color='secondary'>
+              <StarOutlineOutlinedIcon />
+            </IconButton>
           </div>
         </Card>
       ))}

@@ -7,7 +7,7 @@ export default function ContactForm() {
   const [contact, setContact] = useState(initialContact);
   const { addContact } = usePhoneBookStore();
 
-  const onAdd = () => {
+  const handleAdd = () => {
     if (!contact.name.trim() || !contact.phoneNumber.trim()) return;
 
     addContact(contact);
@@ -36,7 +36,7 @@ export default function ContactForm() {
           setContact({ ...contact, phoneNumber: e.target.value })
         }
       />
-      <Button variant='outlined' size='large' fullWidth onClick={onAdd}>
+      <Button variant='outlined' size='large' fullWidth onClick={handleAdd}>
         추가
       </Button>
     </Box>
